@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0618" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Neon Medic</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hidden">
+    <div id="stats">
+      <span id="sWave"></span><span id="sScore"></span><span id="sSaved"></span>
+    </div>
+    <div id="fps"></div>
+    <button id="pauseBtn" aria-label="Pause">II</button>
+    <div id="crosshair"></div>
+    <div id="indicators"></div>
+    <div id="banner"></div>
+    <div id="qpanel" class="hidden">
+      <div id="qwho"></div>
+      <div id="qtext"></div>
+      <div id="qopts"></div>
+      <div id="qhp"><i></i></div>
+    </div>
+    <div id="toast" class="hidden"></div>
+    <div id="dartbar"></div>
+    <div id="lockHint" class="hidden">Click to aim</div>
+    <div id="joy"><div id="joyKnob"></div></div>
+    <button id="fireBtn">FIRE</button>
+  </div>
+
+  <!-- Menu -->
+  <div id="menu" class="screen">
+    <div class="card">
+      <h1>NEON <span>MEDIC</span></h1>
+      <p class="sub">IB SEHS Field Training: planes, axes &amp; movement</p>
+      <p class="brief">Your squad is down. Every wounded comrade shows a question.
+        <b>Load the dart that matches the right answer</b>, then shoot them to heal them.</p>
+      <div id="loading">Loading questions…</div>
+      <div id="topics"></div>
+      <div id="mastery"></div>
+      <div class="row">
+        <button class="big" id="playCombat">⚡ Combat <small>health drains</small></button>
+        <button class="big alt" id="playCalm">☯ Calm <small>no timer</small></button>
+      </div>
+      <details>
+        <summary>How to play</summary>
+        <p><b>Keyboard + mouse:</b> WASD move · mouse aim · <b>1–4</b> or scroll pick dart · click fire · Esc pause</p>
+        <p><b>Touch:</b> left thumb move · right thumb look · tap an answer to load that dart · FIRE</p>
+        <p>Questions you miss come back more often. Your progress saves on this device.</p>
+      </details>
+      <div class="row small">
+        <button id="muteBtn" class="link">🔊 Sound on</button>
+        <button id="qualityBtn" class="link">Graphics: Auto</button>
+        <button id="resetBtn" class="link">Reset progress</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pause -->
+  <div id="pause" class="screen hidden">
+    <div class="card">
+      <h2>PAUSED</h2>
+      <div class="row">
+        <button class="big" id="resumeBtn">Resume</button>
+        <button class="big alt" id="quitBtn">End mission</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Debrief -->
+  <div id="debrief" class="screen hidden">
+    <div class="card wide">
+      <h2>MISSION DEBRIEF</h2>
+      <div id="dStats"></div>
+      <h3 id="dMissedH">Review these</h3>
+      <div id="dMissed"></div>
+      <div class="row">
+        <button class="big" id="againBtn">Play again</button>
+        <button class="big alt" id="menuBtn">Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
